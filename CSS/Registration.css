@@ -1,0 +1,104 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img,
+a {
+    color: #212529;
+}
+
+.input-group-text {
+    background-color: transparent;
+    border-right: 0;
+}
+
+.form-control {
+    border-left: 0;
+}
+
+    .form-control:focus {
+        border-color: rgb(206, 212, 218);
+        box-shadow: none;
+    }
+
+.btn-primary {
+    color: #e1f0fa;
+    background-color: #014c81;
+    border-color: #014c81;
+}
+
+span + a {
+    color: #014c81;
+    border-bottom: 1px solid #014c81;
+}
+
+/* For OR over a line */
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+    .strike > span {
+        position: relative;
+        display: inline-block;
+        opacity: 50%;
+    }
+
+        .strike > span:before,
+        .strike > span:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 500%;
+            height: 1px;
+            background: #212529;
+            opacity: 50%;
+        }
+
+        .strike > span:before {
+            right: 100%;
+            margin-right: 15px;
+        }
+
+        .strike > span:after {
+            left: 100%;
+            margin-left: 15px;
+        }
+
+/* For button after OR */
+
+.btn-secondary {
+    background-color: #e1f0fa;
+    color: #014c81;
+    border-color: #e1f0fa;
+}
+
+.btn > img {
+    position: absolute;
+    top: 0.25rem;
+    left: 1.5rem;
+}
+
+.btn-primary:focus {
+    background-color: #e1f0fa;
+    border-color: #e1f0fa;
+    color: #014c81;
+    box-shadow: none;
+}
+
+.btn-secondary:focus {
+    background-color: #014c81;
+    border-color: #014c81;
+    color: #e1f0fa;
+    box-shadow: none;
+}
