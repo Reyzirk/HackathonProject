@@ -66,12 +66,21 @@
   <ItemGroup>
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\Registration.css" />
+    <Content Include="Images\Bubble_Chart.svg" />
     <Content Include="Images\Email.svg" />
     <Content Include="Images\Facebook.svg" />
     <Content Include="Images\Google.svg" />
+    <Content Include="Images\history.svg" />
     <Content Include="Images\Logo.svg" />
+    <Content Include="Images\Monetization_On.svg" />
     <Content Include="Images\Password.svg" />
     <Content Include="Images\Person.svg" />
+    <Content Include="Images\Power_Settings_New.svg" />
+    <Content Include="Images\Profile_Cover.jpg" />
+    <Content Include="Images\Profile_Image.jpeg" />
+    <Content Include="Images\Settings.svg" />
+    <Content Include="Images\View_List.svg" />
+    <Content Include="Images\Warning.svg" />
     <Content Include="Login.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Web.config" />
