@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finexus Hackathon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <link rel="stylesheet" href="CSS/Registration.css" />
+    <link rel="stylesheet" href="~/CSS/Registration.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,35 +30,40 @@
             <%-- @ Backend: Start of registration form --%>
             <div class="input-group my-3 w-75 mx-auto">
                 <span class="input-group-text" id="basic-addon1">
-                    <img src="Person.svg" alt="" />
+                    <img src="Images/Person.svg" alt="" />
                 </span>
-                <input type="text" class="form-control py-2" placeholder="Name" aria-label="Name" />
+                 <asp:TextBox ID="Name" class="form-control py-2" placeholder="Name" aria-label="Name" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="NameRequiredValidator" runat="server" ErrorMessage="Name cannot be empty!" controlToValidate="Name" CssClass="invalid-message" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:CustomValidator ID="NameCustomValidator" runat="server" CssClass="invalid-message" ControlToValidate="Name" OnServerValidate="Name_ServerValidate" Display="Dynamic"></asp:CustomValidator>
             </div>
 
             <div class="input-group mb-4 w-75 mx-auto">
                 <span class="input-group-text">
                     <img src="Images/Email.svg" alt="" />
                 </span>
-                <input type="text" class="form-control py-2" placeholder="Email" aria-label="Email" />
+                <asp:TextBox ID="Email" class="form-control py-2" placeholder="Email" aria-label="Email" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="EmailRequiredValidator" runat="server" ErrorMessage="Email cannot be empty!" controlToValidate="Email" CssClass="invalid-message" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:CustomValidator ID="EmailCustomValidator" runat="server" CssClass="invalid-message" ControlToValidate="Email" OnServerValidate="Email_ServerValidate" Display="Dynamic"></asp:CustomValidator>
             </div>
 
             <div class="input-group mb-3 w-75 mx-auto">
                 <span class="input-group-text">
                     <img src="Images/Password.svg" alt="" />
                 </span>
-                <input type="text" class="form-control py-2" placeholder="Password" aria-label="Password" />
+                <asp:TextBox ID="Password" class="form-control py-2" placeholder="Password" aria-label="Password" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="PasswordRequiredValidator" runat="server" ErrorMessage="Password cannot be empty!" controlToValidate="Password" CssClass="invalid-message" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:CustomValidator ID="PasswordValidator" runat="server" CssClass="invalid-message" ControlToValidate="Password" OnServerValidate="Password_ServerValidate" Display="Dynamic"></asp:CustomValidator>
             </div>
 
             <div class="input-group mb-3 w-75 mx-auto">
                 <span class="input-group-text">
                     <img src="Images/Password.svg" alt="" />
                 </span>
-                <input type="text" class="form-control py-2" placeholder="Re-enter Password" aria-label="Re-enter Password" />
+                <asp:TextBox ID="ConfirmPassword" class="form-control py-2" placeholder="Re-enter Password" aria-label="Re-enter Password" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="confirmPasswordRequiredValidator" runat="server" ErrorMessage="Re-enter Password cannot be empty!" controlToValidate="ConfirmPassword" CssClass="invalid-message" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:CustomValidator ID="confirmPasswordValidator" runat="server" CssClass="invalid-message" ControlToValidate="ConfirmPassword" OnServerValidate="ConfirmPassword_ServerValidate" Display="Dynamic"></asp:CustomValidator>
             </div>
-
-            <button type="button" class="btn btn-primary w-75 ms-5 rounded-pill py-2">
-                Register
-            </button>
+            <asp:Button type="button" class="btn btn-primary w-75 ms-5 rounded-pill py-2" ID="registerBtn" runat="server" Text="Register" OnClick="registerBtn_Click"/>
             <%-- @ Backend Team: End of registration form --%>
 
             <div class="text-center my-3">

@@ -102,3 +102,11 @@ span + a {
     color: #e1f0fa;
     box-shadow: none;
 }
+
+/* For error message */
+.invalid-message {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #e74a3b;
+}
