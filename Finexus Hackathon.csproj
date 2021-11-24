@@ -70,23 +70,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\FundraiserProfile.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\Registration.css" />
     <Content Include="CSS\UserProfile.css" />
+    <Content Include="FundraiserProfile.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\Bubble_Chart.svg" />
+    <Content Include="Images\Edit.svg" />
     <Content Include="Images\Email.svg" />
     <Content Include="Images\Facebook.svg" />
     <Content Include="Images\Google.svg" />
     <Content Include="Images\History.svg" />
     <Content Include="Images\Logo.svg" />
     <Content Include="Images\Monetization_On.svg" />
+    <Content Include="Images\Open_In_New.svg" />
     <Content Include="Images\Password.svg" />
     <Content Include="Images\Person.svg" />
     <Content Include="Images\Power_Settings_New.svg" />
     <Content Include="Images\Profile_Cover.jpg" />
     <Content Include="Images\Profile_Image.jpeg" />
     <Content Include="Images\Settings.svg" />
+    <Content Include="Images\Timeline.svg" />
     <Content Include="Images\View_List.svg" />
     <Content Include="Images\Warning.svg" />
     <Content Include="Login.aspx" />
@@ -97,6 +102,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="FundraiserProfile.aspx.cs">
+      <DependentUpon>FundraiserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FundraiserProfile.aspx.designer.cs">
+      <DependentUpon>FundraiserProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
