@@ -81,10 +81,12 @@
       <DependentUpon>finexus.mdf</DependentUpon>
     </Content>
     <Content Include="CSS\FundraiserProfile.css" />
+    <Content Include="CSS\FundraisingListing.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\Registration.css" />
     <Content Include="CSS\UserProfile.css" />
     <Content Include="FundraiserProfile.aspx" />
+    <Content Include="FundraisingListing.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\Add.svg" />
     <Content Include="Images\Bubble_Chart.svg" />
@@ -130,6 +132,13 @@
     </Compile>
     <Compile Include="FundraiserProfile.aspx.designer.cs">
       <DependentUpon>FundraiserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FundraisingListing.aspx.cs">
+      <DependentUpon>FundraisingListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FundraisingListing.aspx.designer.cs">
+      <DependentUpon>FundraisingListing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
