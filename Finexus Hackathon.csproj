@@ -54,7 +54,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nkkCoreDLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\nkkCoreDLL\bin\Debug\nkkCoreDLL.dll</HintPath>
+      <HintPath>Library\nkkCoreDLL.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
