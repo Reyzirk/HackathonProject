@@ -27,6 +27,7 @@
         <main>
             <img class="w-100 mx-auto mt-4 mb-3" src="Images/Logo.svg" alt="" height="110" />
             <h1 class="text-center mb-4">Registration</h1>
+            <asp:Label ID="error" runat="server" Text="Failed to register the account, Reason: Database Error" Visible="false" CssClass="invalid-message"></asp:Label>
             <%-- @ Backend: Start of registration form --%>
             <div class="input-group my-3 w-75 mx-auto">
                 <span class="input-group-text" id="basic-addon1">
@@ -50,7 +51,7 @@
                 <span class="input-group-text">
                     <img src="Images/Password.svg" alt="" />
                 </span>
-                <asp:TextBox ID="Password" class="form-control py-2" placeholder="Password" aria-label="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Password" class="form-control py-2" placeholder="Password" aria-label="Password" runat="server" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="PasswordRequiredValidator" runat="server" ErrorMessage="Password cannot be empty!" controlToValidate="Password" CssClass="invalid-message" Display="Dynamic"></asp:RequiredFieldValidator>
                 <asp:CustomValidator ID="PasswordValidator" runat="server" CssClass="invalid-message" ControlToValidate="Password" OnServerValidate="Password_ServerValidate" Display="Dynamic"></asp:CustomValidator>
             </div>
@@ -59,7 +60,7 @@
                 <span class="input-group-text">
                     <img src="Images/Password.svg" alt="" />
                 </span>
-                <asp:TextBox ID="ConfirmPassword" class="form-control py-2" placeholder="Re-enter Password" aria-label="Re-enter Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="ConfirmPassword" class="form-control py-2" placeholder="Re-enter Password" aria-label="Re-enter Password" runat="server" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="confirmPasswordRequiredValidator" runat="server" ErrorMessage="Re-enter Password cannot be empty!" controlToValidate="ConfirmPassword" CssClass="invalid-message" Display="Dynamic"></asp:RequiredFieldValidator>
                 <asp:CustomValidator ID="confirmPasswordValidator" runat="server" CssClass="invalid-message" ControlToValidate="ConfirmPassword" OnServerValidate="ConfirmPassword_ServerValidate" Display="Dynamic"></asp:CustomValidator>
             </div>

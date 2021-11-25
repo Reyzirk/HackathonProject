@@ -20,7 +20,7 @@ namespace Finexus_Hackathon.Database
 
         public Boolean checkPassword(string email, string password)
         {
-            String statement = "SELECT Password,PasswordSalt FROM User WHERE Email = ?";
+            String statement = "SELECT Password,PasswordSalt FROM [User] WHERE Email = ?";
             SqlCommand cmd = new SqlCommand(statement,conn);
             cmd.Parameters.AddWithValue("@email", email);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -35,6 +35,45 @@ namespace Finexus_Hackathon.Database
             }
             reader.Close();
             return false;
+        }
+
+        public Boolean checkEmailExist(String email)
+        {
+            String statement = "SELECT UserID FROM [User] WHERE Email = @email";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+            var obj = cmd.ExecuteScalar();
+
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public Boolean insertUser(User user)
+        {
+            String statement = "INSERT [User] VALUES(@uID, @name, @email, @pw, @passwordSalt, @ip)";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+            cmd.Parameters.AddWithValue("@uID", user.UserID);
+            cmd.Parameters.AddWithValue("@pw", user.Password);
+            cmd.Parameters.AddWithValue("@name", user.Name);
+            cmd.Parameters.AddWithValue("@email", user.Email);
+            cmd.Parameters.AddWithValue("@passwordSalt", user.PasswordSalt);
+            cmd.Parameters.AddWithValue("@ip", user.IpAddress);
+            int result = cmd.ExecuteNonQuery();
+
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

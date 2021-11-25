@@ -6,6 +6,7 @@ using System.Web.UI;
 using Finexus_Hackathon.Objects;
 using System.Web.UI.WebControls;
 using CoreDLL;
+using Finexus_Hackathon.Database;
 
 namespace Finexus_Hackathon
 {
@@ -25,6 +26,15 @@ namespace Finexus_Hackathon
                 user.PasswordSalt = CoreDLL.CoreDLL.generateSalt();
                 user.Password = CoreDLL.CoreDLL.hashPassword(Password.Text.Trim(), CoreDLL.CoreDLL.generateSalt());
                 user.IpAddress = getIpAddress();
+                UserDB db = new UserDB();
+                if (db.insertUser(user))
+                {
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    error.Visible = true;
+                }
             }
         }
         /*
@@ -63,6 +73,7 @@ namespace Finexus_Hackathon
 
         protected void Email_ServerValidate(object source, ServerValidateEventArgs args)
         {
+            UserDB db = new UserDB();
             if (args.Value.Trim().Length > 320)
             {
                 EmailCustomValidator.ErrorMessage = "<b>Email</b> cannot more than 320 characters.";
@@ -72,12 +83,17 @@ namespace Finexus_Hackathon
             {
                 EmailCustomValidator.ErrorMessage = "<b>Email</b> invalid.";
                 args.IsValid = false;
+            }else if (db.checkEmailExist(args.Value.Trim()))
+            {
+                EmailCustomValidator.ErrorMessage = "<b>Email</b> already exist.";
+                args.IsValid = false;
             }
             else
             {
                 args.IsValid = true;
                 user.Email = Email.Text.Trim();
             }
+            db.disconnectDB();
         }
 
         protected void Name_ServerValidate(object source, ServerValidateEventArgs args)
