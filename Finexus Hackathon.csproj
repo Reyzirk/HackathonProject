@@ -70,6 +70,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreateFundraising.aspx" />
+    <Content Include="CSS\CreateFundraising.css" />
     <Content Include="App_Data\finexus.mdf" />
     <Content Include="App_Data\finexus_log.ldf">
       <DependentUpon>finexus.mdf</DependentUpon>
@@ -80,7 +82,10 @@
     <Content Include="CSS\UserProfile.css" />
     <Content Include="FundraiserProfile.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Add.svg" />
     <Content Include="Images\Bubble_Chart.svg" />
+    <Content Include="Images\Create_Fundraising.svg" />
+    <Content Include="Images\Delete.svg" />
     <Content Include="Images\Edit.svg" />
     <Content Include="Images\Email.svg" />
     <Content Include="Images\Facebook.svg" />
@@ -106,6 +111,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CreateFundraising.aspx.cs">
+      <DependentUpon>CreateFundraising.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateFundraising.aspx.designer.cs">
+      <DependentUpon>CreateFundraising.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FundraiserProfile.aspx.cs">
       <DependentUpon>FundraiserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
