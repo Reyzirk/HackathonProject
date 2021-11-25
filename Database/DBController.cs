@@ -18,7 +18,7 @@ namespace Finexus_Hackathon.Database
         }
 
         //Disconnect connection
-        protected void disconnectDB()
+        public void disconnectDB()
         {
             conn.Close();
             conn.Dispose();
