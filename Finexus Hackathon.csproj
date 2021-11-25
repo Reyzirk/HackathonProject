@@ -80,11 +80,13 @@
     <Content Include="App_Data\finexus_log.ldf">
       <DependentUpon>finexus.mdf</DependentUpon>
     </Content>
+    <Content Include="CSS\Dashboard.css" />
     <Content Include="CSS\FundraiserProfile.css" />
     <Content Include="CSS\FundraisingListing.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\Registration.css" />
     <Content Include="CSS\UserProfile.css" />
+    <Content Include="Dashboard.aspx" />
     <Content Include="FundraiserProfile.aspx" />
     <Content Include="FundraisingListing.aspx" />
     <Content Include="Global.asax" />
@@ -130,6 +132,13 @@
     </Compile>
     <Compile Include="CreateFundraising.aspx.designer.cs">
       <DependentUpon>CreateFundraising.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Database\DBController.cs" />
     <Compile Include="Database\UserDB.cs" />
