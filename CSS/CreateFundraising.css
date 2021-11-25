@@ -14,18 +14,22 @@ a {
     color: #212529;
 }
 
+.align-middle {
+    color: #999999 !important;
+}
+
 .btn-primary {
     color: #e1f0fa;
     background-color: #014c81;
     border-color: #014c81;
 }
 
-    .btn-primary:focus {
-        background-color: #e1f0fa;
-        border-color: #e1f0fa;
-        color: #014c81;
-        box-shadow: none;
-    }
+.btn-primary:focus {
+    background-color: #e1f0fa;
+    border-color: #e1f0fa;
+    color: #014c81;
+    box-shadow: none;
+}
 
 .image-btn {
     top: 50%;
