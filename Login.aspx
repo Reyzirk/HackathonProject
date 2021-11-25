@@ -13,13 +13,13 @@
     <form id="form1" runat="server">
         <header class="shadow-sm">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <!-- TODO: Link to homepage -->
-                <a class="navbar-brand" href="#">
-                    <img src="Images/Logo.svg" alt="" height="24" />
-                </a>
-                <a class="fs-6" href="Login.aspx">Login</a>
-            </div>
+                <div class="container-fluid">
+                    <!-- TODO: Link to homepage -->
+                    <a class="navbar-brand" href="#">
+                        <img src="Images/Logo.svg" alt="" height="24" />
+                    </a>
+                    <a class="fs-6" href="Login.aspx">Login</a>
+                </div>
             </nav>
         </header>
 
@@ -31,28 +31,25 @@
                 <span class="input-group-text">
                     <img src="Images/Email.svg" alt="" />
                 </span>
-                <input type="text" class="form-control py-2" placeholder="Email" aria-label="Email" />
+                <asp:TextBox ID="email" runat="server" CssClass="form-control py-2" aria-label="Email" placeholder="Email"></asp:TextBox>
             </div>
 
             <div class="input-group mb-3 w-75 mx-auto">
                 <span class="input-group-text">
                     <img src="Images/Password.svg" alt="" />
                 </span>
-                <input type="text" class="form-control py-2" placeholder="Password" aria-label="Password" />
+                <asp:TextBox ID="password" runat="server" CssClass="form-control py-2" aria-label="Password" placeholder="Password" TextMode="Password"></asp:TextBox>
             </div>
 
             <div class="form-check col ms-5 mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                <input type="checkbox" class="form-check-input" id="flexCheckDefault"/>
                 <label class="form-check-label" for="flexCheckDefault">
                     Remember Me
                 </label>
             </div>
 
             <!-- NOTE: Frontend Team has removed the forget password feature -->
-
-            <button type="button" class="btn btn-primary w-75 ms-5 rounded-pill py-2">
-                Login
-            </button>
+            <asp:Button ID="loginBtn" runat="server" Text="Login" CssClass="btn btn-primary w-75 ms-5 rounded-pill py-2" OnClick="loginBtn_Click" />
             <%-- @ Backend Team: End of login form --%>
 
             <div class="text-center my-4">

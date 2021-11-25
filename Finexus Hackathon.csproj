@@ -70,6 +70,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\finexus.mdf" />
+    <Content Include="App_Data\finexus_log.ldf">
+      <DependentUpon>finexus.mdf</DependentUpon>
+    </Content>
     <Content Include="CSS\FundraiserProfile.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\Registration.css" />
@@ -161,6 +165,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Database\" />
     <Folder Include="JavaScript\" />
   </ItemGroup>
   <PropertyGroup>
