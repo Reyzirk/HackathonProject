@@ -118,6 +118,8 @@
     <Compile Include="CreateFundraising.aspx.designer.cs">
       <DependentUpon>CreateFundraising.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Database\DBController.cs" />
+    <Compile Include="Database\UserDB.cs" />
     <Compile Include="FundraiserProfile.aspx.cs">
       <DependentUpon>FundraiserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -177,7 +179,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Database\" />
     <Folder Include="JavaScript\" />
   </ItemGroup>
   <PropertyGroup>
