@@ -20,7 +20,7 @@ namespace Finexus_Hackathon.Database
 
         public Boolean checkPassword(string email, string password)
         {
-            String statement = "SELECT Password,PasswordSalt FROM [User] WHERE Email = ?";
+            String statement = "SELECT Password,PasswordSalt FROM [User] WHERE Email = @email";
             SqlCommand cmd = new SqlCommand(statement,conn);
             cmd.Parameters.AddWithValue("@email", email);
             SqlDataReader reader = cmd.ExecuteReader();
