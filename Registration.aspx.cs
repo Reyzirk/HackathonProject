@@ -15,7 +15,20 @@ namespace Finexus_Hackathon
         private User user = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["login"] != null)
+            {
+                UserDB db = new UserDB();
+                String name = "";
+                Boolean isFundraiser = db.isFundraiser(Session["login"].ToString(), out name);
+                if (isFundraiser)
+                {
+                    Response.Redirect("FundraiserProfile.aspx");
+                }
+                else
+                {
+                    Response.Redirect("UserProfile.aspx");
+                }
+            }
         }
 
         protected void registerBtn_Click(object sender, EventArgs e)

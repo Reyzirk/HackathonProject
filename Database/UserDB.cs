@@ -18,20 +18,54 @@ namespace Finexus_Hackathon.Database
             connectDB();
         }
 
-        public Boolean checkPassword(string email, string password)
+        public Boolean checkPassword(string email, string password, out string userID)
         {
-            String statement = "SELECT Password,PasswordSalt FROM [User] WHERE Email = @email";
+            userID = "";
+            String statement = "SELECT UserID, Password,PasswordSalt FROM [User] WHERE Email = @email";
             SqlCommand cmd = new SqlCommand(statement,conn);
             cmd.Parameters.AddWithValue("@email", email);
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
+                userID = reader["UserID"].ToString();
                 if (nkkCoreDLL.core.comparePassword(reader["PasswordSalt"].ToString(), password, reader["Password"].ToString()))
                 {
                     reader.Close();
                     return true;
                 }
+            }
+            reader.Close();
+            return false;
+        }
+
+        public Boolean isFundraiser(string userID, out string name)
+        {
+            name = "";
+            String statement = "SELECT UserID,FundRaiser,Name FROM [User] WHERE UserID=@userID";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+            cmd.Parameters.AddWithValue("@userID", userID);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                name = reader["Name"].ToString();
+                try
+                {
+                    if (int.Parse(reader["FundRaiser"].ToString()) == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    return false;
+                }
+                
             }
             reader.Close();
             return false;
@@ -56,7 +90,7 @@ namespace Finexus_Hackathon.Database
 
         public Boolean insertUser(User user)
         {
-            String statement = "INSERT [User] VALUES(@uID, @name, @email, @pw, @passwordSalt, @ip)";
+            String statement = "INSERT [User] VALUES(@uID, @name, @email, @pw, @passwordSalt, @ip, NULL)";
             SqlCommand cmd = new SqlCommand(statement, conn);
             cmd.Parameters.AddWithValue("@uID", user.UserID);
             cmd.Parameters.AddWithValue("@pw", user.Password);

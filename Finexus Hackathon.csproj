@@ -119,6 +119,7 @@
     <Content Include="Images\View_List.svg" />
     <Content Include="Images\Warning.svg" />
     <Content Include="Login.aspx" />
+    <Content Include="logout.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -165,6 +166,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Objects\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

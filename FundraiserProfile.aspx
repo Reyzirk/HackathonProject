@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FundraiserProfile.aspx.cs" Inherits="Finexus_Hackathon.FundraiserProfile" %>
-
+<%@ Import Namespace="Finexus_Hackathon.Database" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -115,7 +115,7 @@
             
             <button type="button" class="btn btn-secondary mb-3 w-75 ms-5">
                 <img class="pe-2" src="Images/Power_Settings_New.svg" alt="" height="20" />
-                <span class="ms-1">Logout</span>
+                <span class="ms-1" onclick="location.href='logout.aspx'">Logout</span>
             </button>
         </main>
     </form>

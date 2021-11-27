@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserProfile.aspx.cs" Inherits="Finexus_Hackathon.UserProfile" %>
-
+<%@ Import Namespace="Finexus_Hackathon.Database" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,10 +19,26 @@
                     <img src="Images/Logo.svg" alt="" height="24" />
                 </a>
                 <div>
-                    <a class="d-flex" href="UserProfile.aspx">
-                        <span class="align-middle pe-2">Lindsay Ellis</span>
+                    <%
+                        if (Session["login"] == null)
+                        {
+                    %>
+                    <a class="fs-6" href="Login.aspx">Login</a>
+                    <%
+                        }
+                        else
+                        {
+                            UserDB db = new UserDB();
+                            String name = "";
+                            Boolean isFundraiser = db.isFundraiser(Session["login"].ToString(), out name);
+                    %>
+                    <a class="d-flex" href="<%= isFundraiser==true?"FundraiserProfile.aspx":"UserProfile.aspx" %>">
+                        <span class="align-middle pe-2"><%= name %></span>
                         <img class="d-block" src="Images/Person.svg" alt="" weight="24" />
                     </a>
+                    <%
+
+                        }%>
                 </div>
             </div>
             </nav>
@@ -82,7 +98,7 @@
 
             <button type="button" class="btn btn-secondary mb-3 w-75 ms-5">
                 <img class="pe-2" src="Images/Power_Settings_New.svg" alt="" height="20" />
-                <span class="ms-1">Logout</span>
+                <span class="ms-1" onclick="location.href='logout.aspx'">Logout</span>
             </button>
         </main>
     </form>

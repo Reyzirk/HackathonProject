@@ -18,19 +18,22 @@ namespace Finexus_Hackathon
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void loginBtn_Click(object sender, EventArgs e)
         {
+            String userID = "";
             if (Page.IsValid)
             {
                 user.Email = email.Text;
                 user.Password = password.Text;
 
-                if (userdb.checkPassword(user.Email, user.Password))
+                if (userdb.checkPassword(user.Email, user.Password, out userID ))
                 {
+                    Session["login"] = userID;
                     Response.Redirect("/FundraiserProfile.aspx");
+                    
                 }
             }
         }
