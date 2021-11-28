@@ -32,11 +32,19 @@ namespace Finexus_Hackathon
                 if (userdb.checkPassword(user.Email, user.Password, out userID))
                 {
                     Session["login"] = userID;
-                    Response.Redirect("/UserProfile.aspx");
+                    if (userdb.isFundraiser(userID, out string name))
+                    {
+                        Response.Redirect("/FundraiserProfile.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("/UserProfile.aspx");
+                    }
                 }
                 else
                 {
-                    Response.Redirect("/Registration.aspx");
+                    Session["errorMsg"] = "Invalid Login!";
+                    Response.Redirect("/Login.aspx");
                 }
             }
         }

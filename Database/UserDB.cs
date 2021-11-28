@@ -28,7 +28,6 @@ namespace Finexus_Hackathon.Database
             while (reader.Read())
             {
                 userID = reader["UserID"].ToString();
-                return true;
                 if (CoreDLL.CoreDLL.comparePassword(reader["PasswordSalt"].ToString(), password, reader["Password"].ToString()))
                 {
                     reader.Close();

@@ -71,6 +71,18 @@
             <asp:Button ID="loginBtn" runat="server" Text="Login" CssClass="btn btn-primary w-75 ms-5 rounded-pill py-2" OnClick="loginBtn_Click" />
             <%-- @ Backend Team: End of login form --%>
 
+            <!--@Frontend Team: Please do help adjust the error messages here-->
+            <%
+                if (Session["errorMsg"] != null)
+                {
+
+                %>
+            <span class="invalid-message">Invalid User ID or password.</span>
+            <%
+                }
+                %>
+            <!--@Frontend Team: End of Error Message-->
+
             <div class="text-center my-4">
                 <span>Need an account?</span>
                 <a class="ms-1" href="Registration.aspx">Sign up here</a>
