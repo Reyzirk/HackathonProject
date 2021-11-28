@@ -29,11 +29,14 @@ namespace Finexus_Hackathon
                 user.Email = email.Text;
                 user.Password = password.Text;
 
-                if (userdb.checkPassword(user.Email, user.Password, out userID ))
+                if (userdb.checkPassword(user.Email, user.Password, out userID))
                 {
                     Session["login"] = userID;
-                    Response.Redirect("/FundraiserProfile.aspx");
-                    
+                    Response.Redirect("/UserProfile.aspx");
+                }
+                else
+                {
+                    Response.Redirect("/Registration.aspx");
                 }
             }
         }

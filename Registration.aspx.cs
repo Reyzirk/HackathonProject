@@ -37,7 +37,7 @@ namespace Finexus_Hackathon
             {
                 user.UserID = Guid.NewGuid().ToString();
                 user.PasswordSalt = CoreDLL.CoreDLL.generateSalt();
-                user.Password = CoreDLL.CoreDLL.hashPassword(Password.Text.Trim(), CoreDLL.CoreDLL.generateSalt());
+                user.Password = CoreDLL.CoreDLL.hashPassword(Password.Text, user.PasswordSalt);
                 user.IpAddress = getIpAddress();
                 UserDB db = new UserDB();
                 if (db.insertUser(user))

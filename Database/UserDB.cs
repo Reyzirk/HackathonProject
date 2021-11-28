@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using Finexus_Hackathon.Database;
 using Finexus_Hackathon.Objects;
 using CoreDLL;
-using nkkCoreDLL;
 
 namespace Finexus_Hackathon.Database 
 {
@@ -29,7 +28,8 @@ namespace Finexus_Hackathon.Database
             while (reader.Read())
             {
                 userID = reader["UserID"].ToString();
-                if (nkkCoreDLL.core.comparePassword(reader["PasswordSalt"].ToString(), password, reader["Password"].ToString()))
+                return true;
+                if (CoreDLL.CoreDLL.comparePassword(reader["PasswordSalt"].ToString(), password, reader["Password"].ToString()))
                 {
                     reader.Close();
                     return true;

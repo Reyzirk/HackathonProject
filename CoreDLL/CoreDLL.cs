@@ -9,6 +9,13 @@ namespace CoreDLL
 {
     public class CoreDLL
     {
+        public static Boolean comparePassword(string passwordSalt, string inputPassword, string truePassword)
+        {
+            String inputHashed = hashPassword(inputPassword, passwordSalt);
+            Console.WriteLine(inputHashed);
+            Console.WriteLine(truePassword);
+            return inputHashed.Equals(truePassword);
+        }
         public static String hashPassword(String input, String salt)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
