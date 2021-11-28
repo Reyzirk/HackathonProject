@@ -79,12 +79,14 @@
     </Content>
     <Content Include="CSS\Dashboard.css" />
     <Content Include="CSS\FundraiserProfile.css" />
+    <Content Include="CSS\FundraisingDetails.css" />
     <Content Include="CSS\FundraisingListing.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\Registration.css" />
     <Content Include="CSS\UserProfile.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="FundraiserProfile.aspx" />
+    <Content Include="FundraisingDetails.aspx" />
     <Content Include="FundraisingListing.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\Add.svg" />
@@ -94,6 +96,7 @@
     <Content Include="Images\Delete.svg" />
     <Content Include="Images\Dog.jpg" />
     <Content Include="Images\Donations.jpg" />
+    <Content Include="Images\Down.svg" />
     <Content Include="Images\Edit.svg" />
     <Content Include="Images\Email.svg" />
     <Content Include="Images\Facebook.svg" />
@@ -101,18 +104,22 @@
     <Content Include="Images\Google.svg" />
     <Content Include="Images\History.svg" />
     <Content Include="Images\Insert_Comment.svg" />
+    <Content Include="Images\Lock.svg" />
     <Content Include="Images\Logo.svg" />
     <Content Include="Images\Monetization_On.svg" />
     <Content Include="Images\More_Horiz.svg" />
     <Content Include="Images\Open_In_New.svg" />
     <Content Include="Images\Password.svg" />
+    <Content Include="Images\People_Connection.jpg" />
     <Content Include="Images\Person.svg" />
     <Content Include="Images\Power_Settings_New.svg" />
     <Content Include="Images\Profile_Cover.jpg" />
     <Content Include="Images\Profile_Image.jpeg" />
+    <Content Include="Images\QR.svg" />
     <Content Include="Images\Settings.svg" />
     <Content Include="Images\Share.svg" />
     <Content Include="Images\Timeline.svg" />
+    <Content Include="Images\Twitter.svg" />
     <Content Include="Images\View_List.svg" />
     <Content Include="Images\Warning.svg" />
     <Content Include="Login.aspx" />
@@ -146,6 +153,13 @@
     </Compile>
     <Compile Include="FundraiserProfile.aspx.designer.cs">
       <DependentUpon>FundraiserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FundraisingDetails.aspx.cs">
+      <DependentUpon>FundraisingDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FundraisingDetails.aspx.designer.cs">
+      <DependentUpon>FundraisingDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="FundraisingListing.aspx.cs">
       <DependentUpon>FundraisingListing.aspx</DependentUpon>
