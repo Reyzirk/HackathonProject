@@ -16,5 +16,10 @@ namespace Finexus_Hackathon
                 Response.Redirect("login.aspx");
             }
         }
+
+        protected void tcValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+
+        }
     }
 }

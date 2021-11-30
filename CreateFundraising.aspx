@@ -193,9 +193,7 @@
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                         Cancel
                                     </button>
-                                    <button type="button" class="btn btn-primary">
-                                        Save changes
-                                    </button>
+                                    <asp:Button ID="savePackage" runat="server" Text="Save Changes" CssClass="btn btn-primary" />
                                 </div>
                             </div>
                         </div>
@@ -240,16 +238,14 @@
                 </div>
 
                 <div class="form-group form-check w-75 mt-1 mb-4 mx-auto">
-                    <input type="checkbox" class="form-check-input" />
+                    <asp:CheckBox ID="tncChkBox" CssClass="form-check-input" runat="server" />
                     <label class="form-check-label" for="exampleCheck1">
                         I agree to the <a href="#">terms and conditions</a> and
                         <a href="#">privacy policy</a> of MinersTech
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-75 ms-5 rounded-pill py-2 mt-2 mb-5">
-                    Submit
-                </button>
+                <asp:Button ID="submitBtn" CssClass="btn btn-primary w-75 ms-5 rounded-pill py-2 mt-2 mb-5" runat="server" Text="Submit" />
             </div>
         </main>
     </form>
