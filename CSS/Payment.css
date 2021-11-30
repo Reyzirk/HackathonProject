@@ -1,0 +1,39 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img,
+a {
+    color: #212529;
+}
+
+.bg-secondary {
+    background-color: #f0f0f0 !important;
+}
+
+.payment-header {
+    background-color: #014c81;
+    color: white;
+}
+
+.profile-img {
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    object-fit: cover;
+    top: 4rem;
+    left: 8rem;
+}
+
+.btn-primary {
+    color: #e1f0fa;
+    background-color: #014c81;
+    border-color: #014c81;
+}

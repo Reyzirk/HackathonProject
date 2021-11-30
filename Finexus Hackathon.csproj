@@ -82,6 +82,7 @@
     <Content Include="CSS\FundraisingDetails.css" />
     <Content Include="CSS\FundraisingListing.css" />
     <Content Include="CSS\Login.css" />
+    <Content Include="CSS\Payment.css" />
     <Content Include="CSS\Registration.css" />
     <Content Include="CSS\UserProfile.css" />
     <Content Include="Dashboard.aspx" />
@@ -91,6 +92,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\Add.svg" />
     <Content Include="Images\Bubble_Chart.svg" />
+    <Content Include="Images\Card.svg" />
     <Content Include="Images\Cat.jpg" />
     <Content Include="Images\Create_Fundraising.svg" />
     <Content Include="Images\Delete.svg" />
@@ -110,6 +112,7 @@
     <Content Include="Images\More_Horiz.svg" />
     <Content Include="Images\Open_In_New.svg" />
     <Content Include="Images\Password.svg" />
+    <Content Include="Images\Paypal.png" />
     <Content Include="Images\People_Connection.jpg" />
     <Content Include="Images\Person.svg" />
     <Content Include="Images\Power_Settings_New.svg" />
@@ -119,11 +122,14 @@
     <Content Include="Images\Settings.svg" />
     <Content Include="Images\Share.svg" />
     <Content Include="Images\Timeline.svg" />
+    <Content Include="Images\TNG.png" />
     <Content Include="Images\Twitter.svg" />
     <Content Include="Images\View_List.svg" />
+    <Content Include="Images\Visa.png" />
     <Content Include="Images\Warning.svg" />
     <Content Include="Login.aspx" />
     <Content Include="logout.aspx" />
+    <Content Include="Payment.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -186,6 +192,13 @@
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Objects\User.cs" />
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
