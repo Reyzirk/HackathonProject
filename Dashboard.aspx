@@ -15,7 +15,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <!-- TODO: Link to homepage -->
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="dashboard.aspx">
                     <img src="Images/Logo.svg" alt="" height="24" />
                 </a>
                 <div>

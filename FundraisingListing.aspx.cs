@@ -11,7 +11,16 @@ namespace Finexus_Hackathon
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void searchText_TextChanged(object sender, EventArgs e)
+        {
+            SQLListing.SelectCommand = "SELECT * FROM Fundraising WHERE FundraisingName LIKE '%@name%'";
+            SQLListing.SelectParameters.Clear();
+            SQLListing.SelectParameters.Add(new Parameter("@name", System.Data.DbType.String,searchText.Text));
+            repeat.DataSource = SQLListing;
+            repeat.DataBind();
         }
     }
 }

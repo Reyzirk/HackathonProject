@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FundraisingListing.aspx.cs" Inherits="Finexus_Hackathon.FundraisingListing" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FundraisingListing.aspx.cs" Inherits="Finexus_Hackathon.FundraisingListing" %>
+
 <%@ Import Namespace="Finexus_Hackathon.Database" %>
 <!DOCTYPE html>
 
@@ -11,42 +12,43 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:SqlDataSource ID="SQLListing" runat="server" ConnectionString='<%$ ConnectionStrings:finexus %>'></asp:SqlDataSource>
         <header class="shadow-sm">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <!-- TODO: Link to homepage -->
-                <a class="navbar-brand" href="#">
-                    <img src="Images/Logo.svg" alt="" height="24" />
-                </a>
-                <div>
-                    <%
-                        if (Session["login"] == null)
-                        {
-                    %>
-                    <a class="fs-6" href="Login.aspx">Login</a>
-                    <%
-                        }
-                        else
-                        {
-                            UserDB db = new UserDB();
-                            String name = "";
-                            Boolean isFundraiser = db.isFundraiser(Session["login"].ToString(), out name);
-                    %>
-                    <a class="d-flex" href="<%= isFundraiser==true?"FundraiserProfile.aspx":"UserProfile.aspx" %>">
-                        <span class="align-middle pe-2"><%= name %></span>
-                        <img class="d-block" src="Images/Person.svg" alt="" weight="24" />
+                <div class="container-fluid">
+                    <!-- TODO: Link to homepage -->
+                    <a class="navbar-brand" href="dashboard.aspx">
+                        <img src="Images/Logo.svg" alt="" height="24" />
                     </a>
-                    <%
+                    <div>
+                        <%
+                            if (Session["login"] == null)
+                            {
+                        %>
+                        <a class="fs-6" href="Login.aspx">Login</a>
+                        <%
+                            }
+                            else
+                            {
+                                UserDB db = new UserDB();
+                                String name = "";
+                                Boolean isFundraiser = db.isFundraiser(Session["login"].ToString(), out name);
+                        %>
+                        <a class="d-flex" href="<%= isFundraiser==true?"FundraiserProfile.aspx":"UserProfile.aspx" %>">
+                            <span class="align-middle pe-2"><%= name %></span>
+                            <img class="d-block" src="Images/Person.svg" alt="" weight="24" />
+                        </a>
+                        <%
 
-                        }%>
+                            }%>
+                    </div>
                 </div>
-            </div>
             </nav>
         </header>
 
         <main>
             <div class="w-75 mx-auto my-4">
-                <input type="text" class="form-control mt-2" id="exampleInputText" placeholder="Search for creators here..." />
+                <asp:TextBox ID="searchText" runat="server" AutoPostBack="true" CssClass="form-control mt-2" placeholder="Search for creators here..." OnTextChanged="searchText_TextChanged"></asp:TextBox>
             </div>
 
             <div class="w-75 mx-auto d-flex flex-column">
@@ -67,62 +69,33 @@
                 <div class="d-flex w-100 justify-content-between px-3 py-3 border border-top-0 border-start-0 border-end-0">
                     <p class="fw-bold w-100 m-0">Creators we found</p>
                 </div>
+                <asp:Repeater runat="server" ID="repeat">
+                    <ItemTemplate>
+                        <a href="FundraisingDetails.aspx?id=<%# Eval("FundraisingID") %>" class="list-group-item list-group-item-action border-0" aria-current="true">
+                            <div class="d-flex w-100 justify-content-between py-3">
+                                <div class="d-flex">
+                                    <img class="profile-img shadow" src="Images/Profile_Image.jpeg" alt="" width="" />
+                                    <div class="d-flex flex-column ms-4 align-self-center">
+                                        <h5><%# Eval("Name") %></h5>
+                                        <small class="text-secondary">Fundraiser of <%# Eval("FundraisingName") %></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <%
+                    if (repeat.Items.Count == 0)
+                    {
+                %>
+                <center style="padding-top:10px;padding-bottom:10px;">
+                    <span class="text-danger text-sm">No creator found</span>
 
-                <a href="#" class="list-group-item list-group-item-action border-0" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between py-3">
-                        <div class="d-flex">
-                            <img class="profile-img shadow" src="Images/Profile_Image.jpeg" alt="" width="" />
-                            <div class="d-flex flex-column ms-4 align-self-center">
-                                <h5>Lindsay Ellis</h5>
-                                <small class="text-secondary">Fundraiser of Chez Lindsay</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action border-0" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between py-3">
-                        <div class="d-flex">
-                            <img class="profile-img shadow" src="Images/Profile_Image.jpeg" alt="" width="100" />
-                            <div class="d-flex flex-column ms-4 align-self-center">
-                                <h5>Sterling Silver</h5>
-                                <small class="text-secondary">Fundraiser of Animal Torture</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action border-0" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between py-3">
-                        <div class="d-flex">
-                            <img class="profile-img shadow" src="Images/Profile_Image.jpeg" alt="" width="" />
-                            <div class="d-flex flex-column ms-4 align-self-center">
-                                <h5>Aurum Arsenicum</h5>
-                                <small class="text-secondary">Fundraiser of Argentite</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action border-0" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between py-3">
-                        <div class="d-flex">
-                            <img class="profile-img shadow" src="Images/Profile_Image.jpeg" alt="" width="" />
-                            <div class="d-flex flex-column ms-4 align-self-center">
-                                <h5>Aragorn Elessar</h5>
-                                <small class="text-secondary">Fundraiser of The Gondorians</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action border-0" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between py-3">
-                        <div class="d-flex">
-                            <img class="profile-img shadow" src="Images/Profile_Image.jpeg" alt="" width="" />
-                            <div class="d-flex flex-column ms-4 align-self-center">
-                                <h5>Hermione Granger</h5>
-                                <small class="text-secondary">Fundraiser of S.P.E.W</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                </center>
+
+                <%
+                    }
+                %>
             </div>
         </main>
     </form>
