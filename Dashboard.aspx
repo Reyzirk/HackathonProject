@@ -55,7 +55,7 @@
                     </span>
                 </div>
 
-                <button type="button" class="btn btn-primary w-75 mx-auto rounded-pill py-2 my-4">
+                <button type="button" class="btn btn-primary w-75 mx-auto rounded-pill py-2 my-4" onclick="location.href='FundraisingListing.aspx'">
                     Find fellow fundraisers
                 </button>
 

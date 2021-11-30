@@ -69,14 +69,14 @@
                 <div class="d-flex w-100 justify-content-between px-3 py-3 border border-top-0 border-start-0 border-end-0">
                     <p class="fw-bold w-100 m-0">Creators we found</p>
                 </div>
-                <asp:Repeater runat="server" ID="repeat">
+                <asp:Repeater runat="server" ID="repeat" DataSourceID="SQLListing">
                     <ItemTemplate>
                         <a href="FundraisingDetails.aspx?id=<%# Eval("FundraisingID") %>" class="list-group-item list-group-item-action border-0" aria-current="true">
                             <div class="d-flex w-100 justify-content-between py-3">
                                 <div class="d-flex">
                                     <img class="profile-img shadow" src="Images/Profile_Image.jpeg" alt="" width="" />
                                     <div class="d-flex flex-column ms-4 align-self-center">
-                                        <h5><%# Eval("Name") %></h5>
+                                        <h5></h5>
                                         <small class="text-secondary">Fundraiser of <%# Eval("FundraisingName") %></small>
                                     </div>
                                 </div>
