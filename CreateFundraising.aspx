@@ -53,42 +53,48 @@
             <div>
                 <h5 class="fs-3 my-4 fw-bold text-center">Fundraising Details</h5>
 
+                <!--Fundraising Title-->
                 <div class="form-group w-75 mx-auto mt-3 mb-4">
                     <label class="fw-bold">
                         Title <span class="text-danger">*</span>
                     </label>
-                    <input class="form-control mt-2" type="text" placeholder="My Fundraising Title" />
+                    <asp:TextBox ID="fundraisingTitle" runat="server" CssClass="form-control mt-2" placeholder="My Fundraising Title"></asp:TextBox>
                 </div>
+                <!--End of Fundraising Title-->
 
+                <!--Fundraising Description-->
                 <div class="form-group w-75 mx-auto mt-3 mb-4">
                     <label class="fw-bold">
                         Description <span class="text-danger">*</span>
                     </label>
-                    <textarea class="form-control mt-2" rows="3" placeholder="My Fundraising Description"></textarea>
+                    <asp:TextBox ID="fundraisingDesc" TextMode="MultiLine" placeholder="My Fundraising Description" CssClass="form-control mt-2" rows="3" runat="server"></asp:TextBox>
                 </div>
+                <!--End of Fundraising Description-->
 
+                <!--Fundraising Category-->
                 <div class="form-group w-75 mx-auto mt-3 mb-4">
                     <label class="fw-bold">
                         Category of Fundraising <span class="text-danger">*</span>
                     </label>
-
-                    <select class="form-select mt-2">
-                        <option selected="selected" disabled="disabled">Select a category</option>
-                        <option value="charity">Charity</option>
-                        <option value="video">Video</option>
-                        <option value="podcast">Podcast</option>
-                        <option value="music">Music</option>
-                        <option value="business">Business</option>
-                        <option value="photography">Photography</option>
-                        <option value="software">Software</option>
-                        <option value="animation">Animation</option>
-                        <option value="writing">Writing</option>
-                        <option value="games">Games</option>
-                        <option value="personal">Personal</option>
-                        <option value="education">Education</option>
-                    </select>
+                    <asp:DropDownList ID="fundraisingCategory" runat="server" CssClass="form-select mt-2">
+                        <asp:ListItem Disabled="True" Selected="True" Text="Select a category" Value="invalidCategory"></asp:ListItem>
+                        <asp:ListItem Text="Charity" Value="charity"></asp:ListItem>
+                        <asp:ListItem Text="Video" Value="video"></asp:ListItem>
+                        <asp:ListItem Text="Podcast" Value="podcast"></asp:ListItem>
+                        <asp:ListItem Text="Music" Value="music"></asp:ListItem>
+                        <asp:ListItem Text="Business" Value="business"></asp:ListItem>
+                        <asp:ListItem Text="Photography" Value="photography"></asp:ListItem>
+                        <asp:ListItem Text="Software" Value="software"></asp:ListItem>
+                        <asp:ListItem Text="Animation" Value="animation"></asp:ListItem>
+                        <asp:ListItem Text="Writing" Value="writing"></asp:ListItem>
+                        <asp:ListItem Text="Games" Value="games"></asp:ListItem>
+                        <asp:ListItem Text="Personal" Value="personal"></asp:ListItem>
+                        <asp:ListItem Text="Education" Value="education"></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
+                <!--End of Fundraising Category-->
 
+                <!--Fundraising Amount-->
                 <div class="form-group w-75 mx-auto mt-3 mb-4">
                     <label class="fw-bold">
                         Amount to Raise <span class="fw-normal text-muted">(optional)</span>
@@ -97,21 +103,24 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MYR</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="15000.00" />
+                        <asp:TextBox ID="fundraiseAmt" CssClass="form-control" placeholder="15000.00" runat="server"></asp:TextBox>
                     </div>
                 </div>
+                <!--End of fundraising amount-->
 
+                <!--Upload Fundraising Image-->
                 <div class="form-group w-75 mx-auto mt-3 mb-4">
                     <label class="fw-bold" for="exampleInputText">
                         Cover Photo <span class="fw-normal text-muted">(optional)</span>
                     </label>
                     <div class="position-relative">
                         <img src="https://via.placeholder.com/280x150" class="rounded mx-auto d-block mt-2 img-fluid" alt="" />
-                        <button type="button" class="btn btn-secondary position-absolute image-btn w-100 h-100 bg-transparent border-0">
-                            Click to upload image
-                        </button>
+                        <!--@Frontend Team: Please do adjust this part of File Upload-->
+                        <asp:FileUpload ID="uploadImg" runat="server" Text="Click to upload image" CssClass="btn btn-secondary position-absolute image-btn w-100 h-100 bg-transparent border-0"/>
+                        <!--@End of frontend team-->
                     </div>
                 </div>
+                <!--End of upload image-->
 
                 <div class="form-group w-75 mx-auto mt-3 mb-4">
                     <div class="d-flex justify-content-between">
@@ -121,6 +130,7 @@
                         </button>
                     </div>
 
+                    <!--Create fundraising package-->
                     <div class="modal fade" id="packageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -130,45 +140,55 @@
                                     </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+                                <!--Create fundraising package body-->
                                 <div class="modal-body">
+                                    <!--Package Title-->
                                     <div class="form-group mb-3">
                                         <label class="fw-bold" for="exampleInputText">
                                             Title <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="form-control mt-2" id="exampleInputText" placeholder="My Package Title" />
+                                        <asp:TextBox ID="exampleInputText" placeholder="My Package Title" CssClass="form-control mt-2" runat="server"></asp:TextBox>
                                     </div>
+                                    <!--End of Package Title-->
 
+                                    <!--Package Description-->
                                     <div class="form-group mb-3">
                                         <label class="fw-bold" for="exampleFormControlTextarea1">
                                             Description <span class="text-danger">*</span>
                                         </label>
-                                        <textarea class="form-control mt-2" id="exampleFormControlTextarea1" rows="3" placeholder="My Package Description"></textarea>
+                                        <asp:TextBox ID="exampleFormControlTextarea1" Rows="3" placeholder="My Package Description" CssClass="form-control mt-2" runat="server"></asp:TextBox>
                                     </div>
+                                    <!--End of package description-->
 
+                                    <!--Minimum fund amount-->
                                     <div class="form-group mb-3">
                                         <label class="fw-bold">
-                                            Price <span class="text-danger">*</span>
+                                            Minimum Fund Amount <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">MYR</span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="15.00" />
+                                            <asp:TextBox ID="minFundAmt" CssClass="form-control" placeholder="15.00" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
+                                    <!--End of minimum fund amount-->
 
+                                    <!--Package image-->
                                     <div class="form-group mb-3">
                                         <label class="fw-bold" for="exampleInputText">
                                             Logo <span class="fw-normal text-muted">(optional)</span>
                                         </label>
                                         <div class="position-relative">
                                             <img src="https://via.placeholder.com/325x150" class="rounded mx-auto d-block mt-2 img-fluid" alt="" />
-                                            <button type="button" class="btn btn-secondary position-absolute image-btn w-100 h-100 bg-transparent border-0">
-                                                Click to upload image
-                                            </button>
+                                            <!--@Frontend Team: Please do adjust this part of File Upload-->
+                                            <asp:FileUpload ID="uploadPackageImg" CssClass="btn btn-secondary position-absolute image-btn w-100 h-100 bg-transparent border-0" Text="Click to upload image" runat="server" />
+                                            <!--@End of Frontend Team-->
                                         </div>
                                     </div>
+                                    <!--End of package image-->
                                 </div>
+                                <!--End of create fundraising package body-->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                         Cancel
@@ -180,6 +200,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--End of create fundraising package-->
 
                     <ul class="list-group mt-2">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -222,7 +243,7 @@
                     <input type="checkbox" class="form-check-input" />
                     <label class="form-check-label" for="exampleCheck1">
                         I agree to the <a href="#">terms and conditions</a> and
-                        <a href="#">privacy policy</a> of the MinersTech
+                        <a href="#">privacy policy</a> of MinersTech
                     </label>
                 </div>
 
