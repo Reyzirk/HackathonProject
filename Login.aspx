@@ -60,7 +60,6 @@
                 <asp:TextBox ID="password" runat="server" CssClass="form-control py-2" aria-label="Password" placeholder="Password" TextMode="Password"></asp:TextBox>
             </div>
 
-            <!--@Frontend Team: Please do help adjust the error messages here-->
             <%
                 if (Session["errorMsg"] != null)
                 {
@@ -70,7 +69,6 @@
             <%
                 }
                 %>
-            <!--@Frontend Team: End of Error Message-->
 
             <div class="form-check col ms-5 mb-3">
                 <input type="checkbox" class="form-check-input" id="flexCheckDefault"/>
