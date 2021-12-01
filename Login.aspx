@@ -60,6 +60,18 @@
                 <asp:TextBox ID="password" runat="server" CssClass="form-control py-2" aria-label="Password" placeholder="Password" TextMode="Password"></asp:TextBox>
             </div>
 
+            <!--@Frontend Team: Please do help adjust the error messages here-->
+            <%
+                if (Session["errorMsg"] != null)
+                {
+
+                %>
+            <p class="ms-5 mb-3 text-danger">Invalid User ID or password.</p>
+            <%
+                }
+                %>
+            <!--@Frontend Team: End of Error Message-->
+
             <div class="form-check col ms-5 mb-3">
                 <input type="checkbox" class="form-check-input" id="flexCheckDefault"/>
                 <label class="form-check-label" for="flexCheckDefault">
@@ -70,18 +82,6 @@
             <!-- NOTE: Frontend Team has removed the forget password feature -->
             <asp:Button ID="loginBtn" runat="server" Text="Login" CssClass="btn btn-primary w-75 ms-5 rounded-pill py-2" OnClick="loginBtn_Click" />
             <%-- @ Backend Team: End of login form --%>
-
-            <!--@Frontend Team: Please do help adjust the error messages here-->
-            <%
-                if (Session["errorMsg"] != null)
-                {
-
-                %>
-            <span class="invalid-message">Invalid User ID or password.</span>
-            <%
-                }
-                %>
-            <!--@Frontend Team: End of Error Message-->
 
             <div class="text-center my-4">
                 <span>Need an account?</span>
