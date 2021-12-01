@@ -115,9 +115,7 @@
                     </label>
                     <div class="position-relative">
                         <img src="https://via.placeholder.com/280x150" class="rounded mx-auto d-block mt-2 img-fluid" alt="" />
-                        <!--@Frontend Team: Please do adjust this part of File Upload-->
                         <asp:FileUpload ID="uploadImg" runat="server" Text="Click to upload image" CssClass="btn btn-secondary position-absolute image-btn w-100 h-100 bg-transparent border-0"/>
-                        <!--@End of frontend team-->
                     </div>
                 </div>
                 <!--End of upload image-->

@@ -71,12 +71,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CreateFundraising.aspx" />
-    <Content Include="CSS\CreateFundraising.css" />
-    <Content Include="App_Data\finexus.mdf" />
     <Content Include="App_Data\finexus_log.ldf">
       <DependentUpon>finexus.mdf</DependentUpon>
     </Content>
+    <Content Include="CreateFundraising.aspx" />
+    <Content Include="CSS\CreateFundraising.css" />
+    <Content Include="App_Data\finexus.mdf" />
     <Content Include="CSS\Dashboard.css" />
     <Content Include="CSS\FundraiserProfile.css" />
     <Content Include="CSS\FundraisingDetails.css" />
