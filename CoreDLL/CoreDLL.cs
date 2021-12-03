@@ -108,5 +108,41 @@ namespace CoreDLL
                 return false;
             }
         }
+
+        //Check whether if file type is valid
+        public static Boolean checkFileType(String input)
+        {
+            switch (input)
+            {
+                case "image/bmp":
+                    return true;
+                case "image/gif":
+                    return true;
+                case "image/jpeg":
+                    return true;
+                case "image/png":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        //Converts valid file type into proper file extension
+        public static String convertFileType(String input)
+        {
+            switch (input)
+            {
+                case "image/bmp":
+                    return ".bmp";
+                case "image/gif":
+                    return ".gif";
+                case "image/jpeg":
+                    return "jpg";
+                case "image/png":
+                    return "png";
+                default:
+                    return "";
+            }
+        }
     }
 }

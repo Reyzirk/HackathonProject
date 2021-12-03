@@ -1,5 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateFundraising.aspx.cs" Inherits="Finexus_Hackathon.CreateFundraising" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateFundraising.aspx.cs" Inherits="Finexus_Hackathon.CreateFundraising" EnableEventValidation="false"%>
 <%@ Import Namespace="Finexus_Hackathon.Database" %>
+<%@ Import Namespace="Finexus_Hackathon.Objects" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -191,36 +192,27 @@
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                         Cancel
                                     </button>
-                                    <asp:Button ID="savePackage" runat="server" Text="Save Changes" CssClass="btn btn-primary" />
+                                    <asp:Button ID="savePackage" runat="server" Text="Save Changes" CssClass="btn btn-primary" OnClick="savePackage_Click"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--End of create fundraising package-->
-
+                    
                     <ul class="list-group mt-2">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div class="ms-2 me-auto">Animal Supporter</div>
-                            <div>
-                                <button class="btn btn-primary border-0 bg-white px-1">
-                                    <img src="Images/Edit.svg" alt="" />
-                                </button>
-                                <button class="btn btn-primary border-0 bg-white px-1">
-                                    <img src="Images/Delete.svg" alt="" />
-                                </button>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div class="ms-2 me-auto">Animal Lover</div>
-                            <div>
-                                <button class="btn btn-primary border-0 bg-white px-1">
-                                    <img src="Images/Edit.svg" alt="" />
-                                </button>
-                                <button class="btn btn-primary border-0 bg-white px-1">
-                                    <img src="Images/Delete.svg" alt="" />
-                                </button>
-                            </div>
-                        </li>
+                        <asp:Repeater ID="displaySections" runat="server">
+                            <ItemTemplate>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="ms-2 me-auto"><%#((Package)Container.DataItem).Title%></div>
+                                    <div>
+                                        <button class="btn btn-primary border-0 bg-white px-1">
+                                            <img src="Images/Edit.svg" alt="" />
+                                        </button>
+                                        <asp:ImageButton ID="delBtn" runat="server" CssClass="btn btn-primary border-0 bg-white px-1" ImageUrl="Images/Delete.svg" CommandArgument="<%#((Package)Container.DataItem).Title%>" CommandName="delete" OnCommand="delBtn_Command"/>
+                                    </div>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </ul>
                 </div>
 

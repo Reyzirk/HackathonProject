@@ -44,7 +44,7 @@
   <ItemGroup>
     <Reference Include="CoreDLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Library\CoreDLL.dll</HintPath>
+      <HintPath>CoreDLL\bin\Debug\CoreDLL.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
@@ -191,6 +191,7 @@
     <Compile Include="logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objects\Package.cs" />
     <Compile Include="Objects\User.cs" />
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
@@ -241,6 +242,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="JavaScript\" />
+    <Folder Include="uploads\fundraiseImg\" />
+    <Folder Include="uploads\packageImg\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
