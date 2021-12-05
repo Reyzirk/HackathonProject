@@ -36,5 +36,27 @@ namespace Finexus_Hackathon.Database
                 return false;
             }
         }
+
+        public Boolean insertPackageRecord(Package package)
+        {
+            String statement = "INSERT [Package] VALUES (@packageName, @packageDesc, @packageMinAmt, @packageFilePath)";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+
+            cmd.Parameters.AddWithValue("@packageName", package.Title);
+            cmd.Parameters.AddWithValue("@packageDesc", package.Desc);
+            cmd.Parameters.AddWithValue("@packageMinAmt", package.MinAmt);
+            cmd.Parameters.AddWithValue("@packageFilePath", package.Filepath);
+
+            int result = cmd.ExecuteNonQuery();
+
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

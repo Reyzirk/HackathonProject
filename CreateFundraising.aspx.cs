@@ -83,7 +83,8 @@ namespace Finexus_Hackathon
             Fundraiser fundraiser = new Fundraiser();
             FundraisingDB fundraisingDB = new FundraisingDB();
             Random random = new Random();
-            String filename; 
+            String filename;
+            var arList = new ArrayList();
 
             fundraiser.FundraisingID = "F" + random.Next(100000);
             fundraiser.Title = fundraisingTitle.Text;
@@ -99,6 +100,16 @@ namespace Finexus_Hackathon
             }
 
             Boolean successFail = fundraisingDB.insertFundraisingRecord(fundraiser);
+
+            if (Session["package"] != null)
+            {
+                arList = (ArrayList)Session["package"];
+
+                foreach (Package package in arList)
+                {
+                    fundraisingDB.insertPackageRecord(package);
+                }
+            }
 
             if (successFail == false)
             {
