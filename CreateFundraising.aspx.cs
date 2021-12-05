@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Finexus_Hackathon.Objects;
+using Finexus_Hackathon.Database;
 
 namespace Finexus_Hackathon
 {
@@ -75,6 +76,38 @@ namespace Finexus_Hackathon
             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Tester')", true);
             displaySections.DataSource = Session["package"];
             displaySections.DataBind();
+        }
+
+        protected void submitBtn_Click(object sender, EventArgs e)
+        {
+            Fundraiser fundraiser = new Fundraiser();
+            FundraisingDB fundraisingDB = new FundraisingDB();
+            Random random = new Random();
+            String filename; 
+
+            fundraiser.FundraisingID = "F" + random.Next(100000);
+            fundraiser.Title = fundraisingTitle.Text;
+            fundraiser.Desc = fundraisingDesc.Text;
+            fundraiser.AmtRaised = Double.Parse(fundraiseAmt.Text);
+            fundraiser.Category = fundraisingCategory.SelectedValue.ToString();
+
+            if (uploadImg.HasFile)
+            {
+                filename = Guid.NewGuid().ToString() + "." + CoreDLL.CoreDLL.convertFileType(uploadImg.PostedFile.ContentType);
+                fundraiser.CoverPhotoFilePath = filename;
+                uploadImg.SaveAs(Server.MapPath("~/uploads/fundraiseImg/" + filename));
+            }
+
+            Boolean successFail = fundraisingDB.insertFundraisingRecord(fundraiser);
+
+            if (successFail == false)
+            {
+                Session["errorMsg"] = "Creation failed.";
+            }
+            else
+            {
+                Response.Redirect("/FundraisingListing.aspx");
+            }
         }
     }
 }

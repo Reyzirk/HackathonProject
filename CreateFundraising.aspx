@@ -53,7 +53,14 @@
 
             <div>
                 <h5 class="fs-3 my-4 fw-bold text-center">Fundraising Details</h5>
-
+                <%
+                    if (Session["errMsg"] != null)
+                    {
+                    %>
+                <p class="ms-5 mb-3 text-danger">Creation failed.</p>
+                <%
+                    }
+                    %>
                 <!--Fundraising Title-->
                 <div class="form-group w-75 mx-auto mt-3 mb-4">
                     <label class="fw-bold">
@@ -235,7 +242,7 @@
                     </label>
                 </div>
 
-                <asp:Button ID="submitBtn" CssClass="btn btn-primary w-75 ms-5 rounded-pill py-2 mt-2 mb-5" runat="server" Text="Submit" />
+                <asp:Button ID="submitBtn" CssClass="btn btn-primary w-75 ms-5 rounded-pill py-2 mt-2 mb-5" runat="server" Text="Submit" OnClick="submitBtn_Click"/>
             </div>
         </main>
     </form>

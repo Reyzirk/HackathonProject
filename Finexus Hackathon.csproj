@@ -152,6 +152,7 @@
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Database\DBController.cs" />
+    <Compile Include="Database\FundraisingDB.cs" />
     <Compile Include="Database\UserDB.cs" />
     <Compile Include="FundraiserProfile.aspx.cs">
       <DependentUpon>FundraiserProfile.aspx</DependentUpon>
@@ -191,6 +192,7 @@
     <Compile Include="logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objects\Fundraiser.cs" />
     <Compile Include="Objects\Package.cs" />
     <Compile Include="Objects\User.cs" />
     <Compile Include="Payment.aspx.cs">
