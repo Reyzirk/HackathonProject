@@ -11,10 +11,12 @@ namespace Finexus_Hackathon.Objects
         private String desc;
         private double minAmt;
         private string filepath;
+        private string fundraisingID;
 
         public string Title { get => title; set => title = value; }
         public string Desc { get => desc; set => desc = value; }
         public double MinAmt { get => minAmt; set => minAmt = value; }
         public string Filepath { get => filepath; set => filepath = value; }
+        public string FundraisingID { get => fundraisingID; set => fundraisingID = value; }
     }
 }

@@ -107,6 +107,7 @@ namespace Finexus_Hackathon
 
                 foreach (Package package in arList)
                 {
+                    package.FundraisingID = fundraiser.FundraisingID;
                     fundraisingDB.insertPackageRecord(package);
                 }
             }
