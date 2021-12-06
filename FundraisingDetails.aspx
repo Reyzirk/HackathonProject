@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FundraisingDetails.aspx.cs" Inherits="Finexus_Hackathon.FundraisingDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FundraisingDetails.aspx.cs" Inherits="Finexus_Hackathon.FundraisingDetails" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -73,7 +73,7 @@
                             <span class="fs-5 fw-bold"><%# Eval("PackageMinAmt")%></span>
                             <span class="text-secondary">per month</span>
                         </div>
-                        <button type="button" class="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2">Join</button>
+                        <asp:Button ID="joinBtn" runat="server" Text="Join" CssClass="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2" CommandName="Join" CommandArgument='<%# Eval("PackageTitle").ToString() %>' OnCommand="joinBtn_Command"/>
                         <p class="text-center m-3">
                             <%# Eval("PackageDesc") %>
                         </p>

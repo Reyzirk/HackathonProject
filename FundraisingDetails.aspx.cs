@@ -16,5 +16,12 @@ namespace Finexus_Hackathon
             SQLListingDetails.SelectParameters.Clear();
             packageDisplay.DataBind();
         }
+
+        protected void joinBtn_Command(object sender, CommandEventArgs e)
+        {
+            string packageName = e.CommandArgument.ToString();
+            Response.Redirect("/Payment.aspx?packageName=" + packageName);
+
+        }
     }
 }
