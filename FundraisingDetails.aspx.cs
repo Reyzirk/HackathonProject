@@ -48,5 +48,12 @@ namespace Finexus_Hackathon
                 db.disconnectDB();
             }
         }
+
+        protected void joinBtn_Command(object sender, CommandEventArgs e)
+        {
+            string packageName = e.CommandArgument.ToString();
+            Response.Redirect("/Payment.aspx?packageName=" + packageName);
+
+        }
     }
 }
