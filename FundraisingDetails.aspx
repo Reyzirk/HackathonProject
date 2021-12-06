@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FundraisingDetails.aspx.cs" Inherits="Finexus_Hackathon.FundraisingDetails" EnableEventValidation="false" %>
+<%@ Import Namespace="Finexus_Hackathon.Database" %>
 
 <!DOCTYPE html>
 
