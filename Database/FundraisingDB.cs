@@ -16,7 +16,7 @@ namespace Finexus_Hackathon.Database
 
         public Boolean insertFundraisingRecord(Fundraiser fundraiser)
         {
-            String statement = "INSERT [Fundraising] VALUES (@fID, @fName, @fDesc, @fAmount, @fPhoto, @fCategory)";
+            String statement = "INSERT [Fundraising] VALUES (@fID, @fName, @fDesc, @fAmount, @fPhoto, @fCategory,0,@userID)";
             SqlCommand cmd = new SqlCommand(statement, conn);
             cmd.Parameters.AddWithValue("@fID",fundraiser.FundraisingID);
             cmd.Parameters.AddWithValue("@fName", fundraiser.Title);
@@ -24,6 +24,7 @@ namespace Finexus_Hackathon.Database
             cmd.Parameters.AddWithValue("@fAmount", fundraiser.AmtRaised);
             cmd.Parameters.AddWithValue("@fPhoto", fundraiser.CoverPhotoFilePath);
             cmd.Parameters.AddWithValue("@fCategory", fundraiser.Category);
+            cmd.Parameters.AddWithValue("@userID", fundraiser.UserID);
 
             int result = cmd.ExecuteNonQuery();
 
@@ -39,7 +40,7 @@ namespace Finexus_Hackathon.Database
 
         public Boolean insertPackageRecord(Package package)
         {
-            String statement = "INSERT [Package] VALUES (@packageName, @packageDesc, @packageMinAmt, @packageFilePath, @packageFundraiserID)";
+            String statement = "INSERT [Package] VALUES (@packageName, @packageDesc, @packageMinAmt, @packageFilePath, @packageFundraiserID,@packageID)";
             SqlCommand cmd = new SqlCommand(statement, conn);
 
             cmd.Parameters.AddWithValue("@packageName", package.Title);
@@ -47,6 +48,7 @@ namespace Finexus_Hackathon.Database
             cmd.Parameters.AddWithValue("@packageMinAmt", package.MinAmt);
             cmd.Parameters.AddWithValue("@packageFilePath", package.Filepath);
             cmd.Parameters.AddWithValue("@packageFundraiserID", package.FundraisingID);
+            cmd.Parameters.AddWithValue("@packageID", package.PackageID);
 
             int result = cmd.ExecuteNonQuery();
 
@@ -58,6 +60,24 @@ namespace Finexus_Hackathon.Database
             {
                 return false;
             }
+        }
+
+        public SqlDataReader getFundraisingDetails(String id)
+        {
+            String statement = "SELECT * FROM [Fundraising] WHERE FundraisingID = @id";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
+        public SqlDataReader getPackageDetails(string packageID)
+        {
+            String statement = "SELECT * FROM [Package] WHERE PackageID = @id";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+            cmd.Parameters.AddWithValue("@id", packageID);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
         }
     }
 }

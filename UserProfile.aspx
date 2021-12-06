@@ -93,7 +93,7 @@
             <div class="text-center my-3">
                 <img src="Images/Monetization_On.svg" alt="" />
                 <%-- Add become fundraiser link --%>
-                <a class="text-primary" href="#">I want to become a fundraiser!</a>
+                <a class="text-primary" href="CreateFundraising.aspx">I want to become a fundraiser!</a>
             </div>
 
             <button type="button" class="btn btn-secondary mb-3 w-75 ms-5">

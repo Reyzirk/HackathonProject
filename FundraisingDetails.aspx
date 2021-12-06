@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FundraisingDetails.aspx.cs" Inherits="Finexus_Hackathon.FundraisingDetails" %>
 
+<%@ Import Namespace="Finexus_Hackathon.Database" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +12,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:SqlDataSource ID="SQLListingDetails" runat="server" ConnectionString="<%$ ConnectionStrings:finexus %>" SelectCommand="SELECT * FROM [Package]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SQLListingDetails" runat="server" ConnectionString="<%$ ConnectionStrings:finexus %>" SelectCommand="SELECT * FROM [Package] WHERE ([PackageFundraisingID] = @PackageFundraisingID)">
+            <SelectParameters>
+                <asp:QueryStringParameter QueryStringField="id" Name="PackageFundraisingID" Type="String"></asp:QueryStringParameter>
+            </SelectParameters>
+        </asp:SqlDataSource>
         <header class="shadow-sm">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
@@ -52,8 +57,8 @@
             </div>
 
             <div class="text-center pt-6">
-                <p class="m-0 mb-1 fw-bold">Lindsay Ellis</p>
-                <p class="text-secondary">is supporting animal shelters</p>
+                <p class="m-0 mb-1 fw-bold"><%= name %></p>
+                <p class="text-secondary">is supporting <%= raiser.Title %></p>
             </div>
 
             <div class="bg-secondary my-4 p-4 text-center text-three">
@@ -66,7 +71,7 @@
                 <p>#animalshelters #loveanimals #saveanimals</p>
 
                 <button type="button" class="share_btn border-0" data-bs-toggle="modal" data-bs-target="#shareModal">
-                    <img src="Images/Share.svg" alt="" />
+                    <img src="uploads/fundraiseImg/<%= raiser.CoverPhotoFilePath %>" alt="" style="width: 80%; height: 80%;" />
                 </button>
 
                 <div class="modal fade" id="shareModal" tabindex="-1">
@@ -92,7 +97,7 @@
                             <span class="fs-5 fw-bold"><%# Eval("PackageMinAmt")%></span>
                             <span class="text-secondary">per month</span>
                         </div>
-                        <button type="button" class="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2">Join</button>
+                        <button type="button" class="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2" onclick="location.href='Payment.aspx?packageID=<%# Eval("PackageID") %>'">Join</button>
                         <p class="text-center m-3">
                             <%# Eval("PackageDesc") %>
                         </p>
@@ -113,7 +118,7 @@
                     <span class="text-secondary">members</span>
                 </div>
                 <div class="d-flex flex-column text-center">
-                    <span class="fw-bold">RM 1,379</span>
+                    <span class="fw-bold">RM <%= raiser.CurrentRaised %></span>
                     <span class="text-secondary">amount raised</span>
                 </div>
             </div>

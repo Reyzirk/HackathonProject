@@ -53,24 +53,24 @@
             </div>
             <div class="payment-header d-flex justify-content-center py-4">
                 <img class="profile-img" src="Images/Profile_Image.jpeg" alt="" />
-                <span class="fw-bold fs-4 align-self-center ms-4">Lindsay Ellis</span>
+                <span class="fw-bold fs-4 align-self-center ms-4"><%= name %></span>
             </div>
 
             <div class="mx-4 my-4">
                 <h3 class="text-center mb-4 fw-bold">Order Summary</h3>
                 <div class="d-flex justify-content-between">
-                    <span class="text-muted">Animal Supporter</span>
-                    <span class="fw-bold">RM 5.00</span>
+                    <span class="text-muted"><%= package.Title %></span>
+                    <span class="fw-bold">RM <%= String.Format("{0:#0.00}",package.MinAmt) %></span>
                 </div>
                 <hr />
                 <div class="d-flex flex-column align-items-end">
                     <div>
                         <span class="text-muted">Service Tax (2%)</span>
-                        <span class="fw-bold ms-4">RM 0.10</span>
+                        <span class="fw-bold ms-4">RM <%= String.Format("{0:#0.00}",package.MinAmt*0.02) %></span>
                     </div>
                     <div class="py-2">
                         <span class="text-muted fw-bold">Total</span>
-                        <span class="fw-bold ms-4">RM 5.10</span>
+                        <span class="fw-bold ms-4">RM <%= String.Format("{0:#0.00}",package.MinAmt+(package.MinAmt*0.02)) %></span>
                     </div>
                 </div>
             </div>

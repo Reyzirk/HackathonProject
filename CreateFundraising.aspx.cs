@@ -37,7 +37,7 @@ namespace Finexus_Hackathon
             {
                 arList = (ArrayList)Session["package"];
             }
-
+            package.PackageID = Guid.NewGuid().ToString();
             package.Title = exampleInputText.Text;
             package.Desc = exampleFormControlTextarea1.Text;
             package.MinAmt = double.Parse(minFundAmt.Text);
@@ -85,12 +85,14 @@ namespace Finexus_Hackathon
             Random random = new Random();
             String filename;
             var arList = new ArrayList();
-
+            
+            
             fundraiser.FundraisingID = "F" + random.Next(100000);
             fundraiser.Title = fundraisingTitle.Text;
             fundraiser.Desc = fundraisingDesc.Text;
             fundraiser.AmtRaised = Double.Parse(fundraiseAmt.Text);
             fundraiser.Category = fundraisingCategory.SelectedValue.ToString();
+            fundraiser.UserID = Session["login"].ToString();
 
             if (uploadImg.HasFile)
             {
