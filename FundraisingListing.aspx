@@ -74,7 +74,7 @@
                         <a href="FundraisingDetails.aspx?id=<%# Eval("FundraisingID") %>" class="list-group-item list-group-item-action border-0" aria-current="true">
                             <div class="d-flex w-100 justify-content-between py-3">
                                 <div class="d-flex">
-                                    <img class="profile-img shadow" src="Images/Profile_Image.jpeg" alt="" width="" />
+                                    <img class="profile-img shadow" src="uploads/fundraiseImg/<%# Eval("FundraisingPhoto") %>" alt="" width="" />
                                     <div class="d-flex flex-column ms-4 align-self-center">
                                         <h5></h5>
                                         <small class="text-secondary">Fundraiser of <%# Eval("FundraisingName") %></small>
