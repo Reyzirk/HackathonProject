@@ -34,15 +34,18 @@ namespace Finexus_Hackathon
                         raiser.Desc = reader["FundraisingDesc"].ToString();
                         raiser.CoverPhotoFilePath = reader["FundraisingPhoto"].ToString();
                         raiser.Category = reader["FundraisingCategory"].ToString();
+                        raiser.CurrentRaised = double.Parse(reader["FundraisingCurrent"].ToString());
                         raiser.UserID = reader["UserID"].ToString();
                         UserDB db2 = new UserDB();
                         name = "";
                         db2.isFundraiser(raiser.UserID,out name);
                         db2.disconnectDB();
                     }
+
                 }
                 else
                 {
+                    db.disconnectDB();
                     Response.Redirect("FundraisingListing.aspx");
                 }
                 db.disconnectDB();

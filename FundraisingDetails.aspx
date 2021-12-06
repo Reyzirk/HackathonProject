@@ -95,7 +95,7 @@
                     <div class="card mx-auto my-4 shadow" style="width: 20rem">
                         <h5 class="py-3 text-center"><%# Eval("PackageTitle") %></h5>
                         <div class="d-flex flex-column mx-auto text-center">
-                            <span class="fs-5 fw-bold"><%# Eval("PackageMinAmt")%></span>
+                            <span class="fs-5 fw-bold"><%# String.Format("{0:#0.00}", Eval("PackageMinAmt"))%></span>
                             <span class="text-secondary">per month</span>
                         </div>
                         <button type="button" class="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2" onclick="location.href='Payment.aspx?packageID=<%# Eval("PackageID") %>'">Join</button>
@@ -119,7 +119,7 @@
                     <span class="text-secondary">members</span>
                 </div>
                 <div class="d-flex flex-column text-center">
-                    <span class="fw-bold">RM <%= raiser.CurrentRaised %></span>
+                    <span class="fw-bold">RM <%= String.Format("{0:#0.00}", raiser.CurrentRaised) %></span>
                     <span class="text-secondary">amount raised</span>
                 </div>
             </div>

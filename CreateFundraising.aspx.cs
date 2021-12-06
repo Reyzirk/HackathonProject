@@ -113,13 +113,17 @@ namespace Finexus_Hackathon
                     fundraisingDB.insertPackageRecord(package);
                 }
             }
-
+            
+            fundraisingDB.disconnectDB();
             if (successFail == false)
             {
                 Session["errorMsg"] = "Creation failed.";
             }
             else
             {
+                UserDB db = new UserDB();
+                db.updateStatus(Session["login"].ToString());
+                db.disconnectDB();
                 Response.Redirect("/FundraisingListing.aspx");
             }
         }

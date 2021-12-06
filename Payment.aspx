@@ -83,9 +83,7 @@
             </div>
 
             <div class="d-flex py-5">
-                <button type="button" class="btn btn-primary w-50 mx-auto rounded-pill py-2">
-                    Pay Now
-                </button>
+                <asp:Button ID="Button1" runat="server" Text="Pay Now" CssClass="btn btn-primary w-50 mx-auto rounded-pill py-2" OnClick="Button1_Click" />
             </div>
         </main>
     </form>

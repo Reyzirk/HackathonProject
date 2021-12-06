@@ -70,6 +70,14 @@ namespace Finexus_Hackathon.Database
             SqlDataReader reader = cmd.ExecuteReader();
             return reader;
         }
+        public SqlDataReader getFundraisingUserDetails(String id)
+        {
+            String statement = "SELECT FundraisingID,FundraisingName,FundraisingAmount,FundraisingDesc,FundraisingPhoto,FundraisingCategory,FundraisingCurrent,Name FROM [Fundraising],[User] WHERE [Fundraising].UserID = [User].[UserID] AND [User].UserID = @id";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
 
         public SqlDataReader getPackageDetails(string packageID)
         {
@@ -78,6 +86,24 @@ namespace Finexus_Hackathon.Database
             cmd.Parameters.AddWithValue("@id", packageID);
             SqlDataReader reader = cmd.ExecuteReader();
             return reader;
+        }
+
+        public Boolean updateCurrentAmount(String fundraisingID,double current)
+        {
+            String statement = "UPDATE [Fundraising] SET FundraisingCurrent=@current WHERE FundraisingID = @id";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+            cmd.Parameters.AddWithValue("@current", current);
+            cmd.Parameters.AddWithValue("@id", fundraisingID);
+
+            int result = cmd.ExecuteNonQuery();
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

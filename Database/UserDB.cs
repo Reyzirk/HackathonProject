@@ -51,7 +51,7 @@ namespace Finexus_Hackathon.Database
                 name = reader["Name"].ToString();
                 try
                 {
-                    if (int.Parse(reader["FundRaiser"].ToString()) == 0)
+                    if (Boolean.Parse(reader["FundRaiser"].ToString()) == false)
                     {
                         return false;
                     }
@@ -99,6 +99,24 @@ namespace Finexus_Hackathon.Database
             cmd.Parameters.AddWithValue("@ip", user.IpAddress);
             int result = cmd.ExecuteNonQuery();
 
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean updateStatus(String userID)
+        {
+            String statement = "UPDATE [User] SET FundRaiser=@raiser WHERE userID = @id";
+            SqlCommand cmd = new SqlCommand(statement, conn);
+            cmd.Parameters.AddWithValue("@raiser",true);
+            cmd.Parameters.AddWithValue("@id", userID);
+
+            int result = cmd.ExecuteNonQuery();
             if (result > 0)
             {
                 return true;

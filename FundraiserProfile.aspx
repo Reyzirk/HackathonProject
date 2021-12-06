@@ -52,13 +52,13 @@
 
             <div class="pt-6">
                 <div class="text-center">
-                    <p class="m-0 mb-1 fw-bold">Lindsay Ellis</p>
+                    <p class="m-0 mb-1 fw-bold"><%=name %></p>
                     <p class="text-secondary">Joined November 2021</p>
                 </div>
 
                 <div class="text-center">
                     <p class="m-0 mb-1 fw-bold">About Me</p>
-                    <p class="text-secondary">I'm Lindsay Ellis</p>
+                    <p class="text-secondary">I'm <%= name %></p>
                 </div>
             </div>
 
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="d-flex flex-column">
-                        <span class="fs-6 w-100 text-center fw-bold">$1,379</span>
+                        <span class="fs-6 w-100 text-center fw-bold">RM <%= String.Format("{0:#0.00}", raiser.CurrentRaised) %></span>
                         <span class="text-secondary">amount raised</span>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                     <li class="list-group-item ps-5">
                         <img src="Images/Open_In_New.svg" alt="" height="24" />
                         <%-- TODO: Add my event page link --%>
-                        <a class="ms-4" href="#">Go to My Event Page</a>
+                        <a class="ms-4" href="FundraisingDetails.aspx?id=<%= raiser.FundraisingID %>">Go to My Event Page</a>
                     </li>
                     <li class="list-group-item ps-5">
                         <img src="Images/Edit.svg" alt="" height="24" />

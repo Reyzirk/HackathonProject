@@ -10,6 +10,7 @@ namespace Finexus_Hackathon
         public Fundraiser raiser = new Fundraiser();
         public String name = "";
         public Package package = new Package();
+        public String fundid = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["login"] == null)
@@ -32,7 +33,7 @@ namespace Finexus_Hackathon
                     {
                         package.Title = reader2["PackageTitle"].ToString();
                         package.MinAmt = double.Parse(reader2["PackageMinAmt"].ToString());
-                        String fundid = reader2["PackageFundraisingID"].ToString();
+                        fundid = reader2["PackageFundraisingID"].ToString();
                         SqlDataReader reader = db.getFundraisingDetails(fundid);
                         if (reader.HasRows)
                         {
@@ -43,6 +44,7 @@ namespace Finexus_Hackathon
                                 raiser.Desc = reader["FundraisingDesc"].ToString();
                                 raiser.CoverPhotoFilePath = reader["FundraisingPhoto"].ToString();
                                 raiser.Category = reader["FundraisingCategory"].ToString();
+                                raiser.CurrentRaised = double.Parse(reader["FundraisingCurrent"].ToString());
                                 raiser.UserID = reader["UserID"].ToString();
                                 UserDB db2 = new UserDB();
                                 name = "";
@@ -63,6 +65,14 @@ namespace Finexus_Hackathon
                 
                 db.disconnectDB();
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            FundraisingDB db = new FundraisingDB();
+            db.updateCurrentAmount(fundid, raiser.CurrentRaised+package.MinAmt);
+            db.disconnectDB();
+            Response.Redirect("FundraisingDetails.aspx?id=" + fundid);
         }
     }
 }
