@@ -11,7 +11,10 @@ namespace Finexus_Hackathon
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string id = Request.QueryString["id"];
+            SQLListingDetails.SelectCommand = "SELECT * FROM Package WHERE PackageFundraisingID = '" + id + "'";
+            SQLListingDetails.SelectParameters.Clear();
+            packageDisplay.DataBind();
         }
     }
 }

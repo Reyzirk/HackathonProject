@@ -1,6 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FundraisingDetails.aspx.cs" Inherits="Finexus_Hackathon.FundraisingDetails" %>
-
-<%@ Import Namespace="Finexus_Hackathon.Database" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FundraisingDetails.aspx.cs" Inherits="Finexus_Hackathon.FundraisingDetails" %>
 
 <!DOCTYPE html>
 
@@ -13,6 +11,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:SqlDataSource ID="SQLListingDetails" runat="server" ConnectionString="<%$ ConnectionStrings:finexus %>" SelectCommand="SELECT * FROM [Package]"></asp:SqlDataSource>
         <header class="shadow-sm">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
@@ -85,39 +84,21 @@
 
             <h1 class="text-center fw-bold">Select a package</h1>
 
-            <div class="card mx-auto my-4 shadow" style="width: 20rem">
-                <h5 class="py-3 text-center">Animal Supporter</h5>
-                <div class="d-flex flex-column mx-auto text-center">
-                    <span class="fs-5 fw-bold">RM 5</span>
-                    <span class="text-secondary">per month</span>
-                </div>
-                <button type="button" class="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2">Join</button>
-                <p class="text-center m-3">
-                    You are officially a part of the gang now! The community will definitely welcome you here, thank you for being an animal supporter.
-                </p>
-            </div>
-            <div class="card mx-auto my-4 shadow" style="width: 20rem">
-                <h5 class="py-3 text-center">Animal Lover</h5>
-                <div class="d-flex flex-column mx-auto text-center">
-                    <span class="fs-5 fw-bold">RM 10</span>
-                    <span class="text-secondary">per month</span>
-                </div>
-                <button type="button" class="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2">Join</button>
-                <p class="text-center m-3">
-                    You are officially a part of the gang now! The community will definitely welcome you here, thank you for being an animal lover.
-                </p>
-            </div>
-            <div class="card mx-auto my-4 shadow" style="width: 20rem">
-                <h5 class="py-3 text-center">Animal Enthusiast</h5>
-                <div class="d-flex flex-column mx-auto text-center">
-                    <span class="fs-5 fw-bold">RM 15</span>
-                    <span class="text-secondary">per month</span>
-                </div>
-                <button type="button" class="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2">Join</button>
-                <p class="text-center m-3">
-                    You are officially a part of the gang now! The community will definitely welcome you here, thank you for being an animal enthusiast.
-                </p>
-            </div>
+            <asp:Repeater ID="packageDisplay" runat="server" DataSourceID="SQLListingDetails">
+                <ItemTemplate>
+                    <div class="card mx-auto my-4 shadow" style="width: 20rem">
+                        <h5 class="py-3 text-center"><%# Eval("PackageTitle") %></h5>
+                        <div class="d-flex flex-column mx-auto text-center">
+                            <span class="fs-5 fw-bold"><%# Eval("PackageMinAmt")%></span>
+                            <span class="text-secondary">per month</span>
+                        </div>
+                        <button type="button" class="btn btn-primary w-60 my-3 mx-auto rounded-pill py-2">Join</button>
+                        <p class="text-center m-3">
+                            <%# Eval("PackageDesc") %>
+                        </p>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
 
             <div class="card border-0 mx-auto" style="width: 20rem">
                 <button type="button" class="btn btn-secondary my-3 w-60 mx-auto rounded-pill py-2">

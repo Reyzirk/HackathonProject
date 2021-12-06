@@ -39,13 +39,14 @@ namespace Finexus_Hackathon.Database
 
         public Boolean insertPackageRecord(Package package)
         {
-            String statement = "INSERT [Package] VALUES (@packageName, @packageDesc, @packageMinAmt, @packageFilePath)";
+            String statement = "INSERT [Package] VALUES (@packageName, @packageDesc, @packageMinAmt, @packageFilePath, @packageFundraiserID)";
             SqlCommand cmd = new SqlCommand(statement, conn);
 
             cmd.Parameters.AddWithValue("@packageName", package.Title);
             cmd.Parameters.AddWithValue("@packageDesc", package.Desc);
             cmd.Parameters.AddWithValue("@packageMinAmt", package.MinAmt);
             cmd.Parameters.AddWithValue("@packageFilePath", package.Filepath);
+            cmd.Parameters.AddWithValue("@packageFundraiserID", package.FundraisingID);
 
             int result = cmd.ExecuteNonQuery();
 
