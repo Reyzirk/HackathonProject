@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FundraisingDetails.aspx.cs" Inherits="Finexus_Hackathon.FundraisingDetails" %>
+
 <%@ Import Namespace="Finexus_Hackathon.Database" %>
 
 <!DOCTYPE html>
@@ -14,15 +15,34 @@
     <form id="form1" runat="server">
         <header class="shadow-sm">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <!-- TODO: Link to homepage -->
-                <a class="navbar-brand" href="dashboard.aspx">
-                    <img src="Images/Logo.svg" alt="" height="24" />
-                </a>
-                <div>
-                    <a class="fs-6" href="Login.aspx">Login</a>
+                <div class="container-fluid">
+                    <!-- TODO: Link to homepage -->
+                    <a class="navbar-brand" href="dashboard.aspx">
+                        <img src="Images/Logo.svg" alt="" height="24" />
+                    </a>
+                    <div>
+                        <%
+                            if (Session["login"] == null)
+                            {
+                        %>
+                        <a class="fs-6" href="Login.aspx">Login</a>
+                        <%
+                            }
+                            else
+                            {
+                                UserDB db = new UserDB();
+                                String name = "";
+                                Boolean isFundraiser = db.isFundraiser(Session["login"].ToString(), out name);
+                        %>
+                        <a class="d-flex" href="<%= isFundraiser==true?"FundraiserProfile.aspx":"UserProfile.aspx" %>">
+                            <span class="align-middle pe-2"><%= name %></span>
+                            <img class="d-block" src="Images/Person.svg" alt="" weight="24" />
+                        </a>
+                        <%
+
+                            }%>
+                    </div>
                 </div>
-            </div>
             </nav>
         </header>
 
