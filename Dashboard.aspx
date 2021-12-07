@@ -73,7 +73,7 @@
                                     <img src="Images/More_Horiz.svg" alt="" />
                                 </button>
                             </div>
-                            <small class="text-secondary">Fundraiser of Animal Torture</small>
+                            <small class="text-secondary">Fundraiser of Animal Lovers</small>
                         </div>
                     </div>
                 </div>
