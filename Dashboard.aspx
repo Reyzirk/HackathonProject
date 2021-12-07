@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <p>Are you ready for the next dog eating festival?!</p>
+                <p>Dogs are cute creatues that deserve love. Join us today!</p>
                 <img class="w-100" src="Images/Dog.jpg" alt="" />
                 <div class="mt-2">
                     <small class="text-secondary">
@@ -110,12 +110,12 @@
                                     <img src="Images/More_Horiz.svg" alt="" />
                                 </button>
                             </div>
-                            <small class="text-secondary">Fundraiser of Animal Torture</small>
+                            <small class="text-secondary">Fundraiser of Animal Shelter</small>
                         </div>
                     </div>
                 </div>
 
-                <p>It's time</p>
+                <p>It's time.</p>
                 <img class="w-100" src="Images/Cat.jpg" alt="" />
                 <div class="mt-2">
                     <small class="text-secondary">
