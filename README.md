@@ -26,5 +26,6 @@ Supported Platforms:
              USER ACCOUNT INFORMATION
 
 ================================================
- [Username]                 [Password]
+
+[Username]                 [Password]
  - minerstech@gmail.com     abc123
