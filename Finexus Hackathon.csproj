@@ -242,6 +242,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Site.Mobile.Master" />
+    <None Include="Properties\PublishProfiles\FinexusHacka - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FinexusHackathon - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

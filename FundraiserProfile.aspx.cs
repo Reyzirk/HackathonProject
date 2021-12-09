@@ -34,6 +34,7 @@ namespace Finexus_Hackathon
                         raiser.CoverPhotoFilePath = reader["FundraisingPhoto"].ToString();
                         raiser.Category = reader["FundraisingCategory"].ToString();
                         raiser.FundraisingID = reader["FundraisingID"].ToString();
+                        raiser.CurrentRaised = double.Parse(reader["FundraisingCurrent"].ToString());
                         name = reader["Name"].ToString();
                     }
                     

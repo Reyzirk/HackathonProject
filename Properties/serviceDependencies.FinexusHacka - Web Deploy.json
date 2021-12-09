@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "type": "mssql.onprem",
+      "connectionId": "test",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

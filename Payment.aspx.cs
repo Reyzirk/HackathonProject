@@ -62,7 +62,7 @@ namespace Finexus_Hackathon
                 {
                     Response.Redirect("FundraisingListing.aspx");
                 }
-                
+
                 db.disconnectDB();
             }
         }
@@ -70,7 +70,7 @@ namespace Finexus_Hackathon
         protected void Button1_Click(object sender, EventArgs e)
         {
             FundraisingDB db = new FundraisingDB();
-            db.updateCurrentAmount(fundid, raiser.CurrentRaised+package.MinAmt);
+            db.updateCurrentAmount(fundid, raiser.CurrentRaised + package.MinAmt);
             db.disconnectDB();
             Response.Redirect("FundraisingDetails.aspx?id=" + fundid);
         }

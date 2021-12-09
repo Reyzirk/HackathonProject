@@ -3,6 +3,10 @@
     "mssql1": {
       "type": "mssql",
       "connectionId": "finexus"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "test"
     }
   }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Payment.aspx.cs" Inherits="Finexus_Hackathon.Payment" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="Finexus_Hackathon.Payment" %>
 <%@ Import Namespace="Finexus_Hackathon.Database" %>
 <!DOCTYPE html>
 
