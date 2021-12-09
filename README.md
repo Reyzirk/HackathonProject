@@ -22,7 +22,10 @@ Supported Platforms:
   - Google Chrome 
 
 ================================================
-              
-              ACCOUNT INFORMATION
+  
+             USER ACCOUNT INFORMATION
 
 ================================================
+ [Username]                 [Password]
+ 
+ - minerstech@gmail.com     abc123
